@@ -14,7 +14,7 @@ export interface CurrencyCardProps {
     name: string;
     symbol: string;
     icon: string;
-    tokenAmount: number | string;
+    tokenAmount: number ;
     usdBalance: number | string;
 }
   
