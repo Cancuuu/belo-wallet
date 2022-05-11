@@ -1,25 +1,29 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
-import { generateUserBalance } from "../utils/generateBalance";
+import { generateFirstUserBalance } from "../utils/generateBalance";
 
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [apiTokens, setApiTokens] = useState([]);
-  const [userUsdBalance, setUserUsdBalance] = useState(0);
   const [userAssets, setUserAssets] = useState([]);
 
   const fetchUserAssets = async () => {
-    const userAssets = await generateUserBalance();
-    setUserAssets(userAssets.filledAssets);
-    setUserUsdBalance(userAssets.totalUsdBalance);
+    if (localStorage.getItem("userAssets")) {
+      setUserAssets(JSON.parse(localStorage.getItem("userAssets")));
+    } else {
+      const userAssets = await generateFirstUserBalance();
+
+      localStorage.setItem("userAssets", JSON.stringify(userAssets));
+
+      setUserAssets(userAssets);
+    }
   };
 
   return (
     <AppContext.Provider
       value={{
         apiTokens,
-        userUsdBalance,
         userAssets,
         fetchUserAssets,
       }}

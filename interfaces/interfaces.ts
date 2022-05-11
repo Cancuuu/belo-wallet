@@ -5,8 +5,10 @@ export interface ProviderProps {
 }
   
 export interface ButtonParams {
-    icon: ReactNode;
-    label: string;
+    icon?: ReactNode;
+    label?: string;
+    className?: string;
+    onClick?: () => void;
 }
 
 export interface CurrencyCardProps {
@@ -14,7 +16,11 @@ export interface CurrencyCardProps {
     name: string;
     symbol: string;
     icon: string;
-    tokenAmount: number ;
+    tokenAmount: number;
     usdBalance: number | string;
+}
+
+export interface Asset {
+    usdBalance: number;
 }
   

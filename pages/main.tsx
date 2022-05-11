@@ -1,3 +1,4 @@
+// hooks
 import { useEffect, useContext } from "react";
 
 // icons
@@ -9,7 +10,7 @@ import BalanceButtons from "../components/BalanceButtons";
 import CoinList from "../components/CoinList";
 import { AppContext } from "../context/AppProvider";
 
-const Home = () => {
+const Main = () => {
   const { fetchUserAssets } = useContext(AppContext);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col p-4 bg-[#f7f7fc]">
-      <nav className=" flex justify-between">
+      <nav className="flex justify-between">
         <AccountCircleIcon fontSize="large" />
         <HistoryIcon fontSize="large" />
       </nav>
@@ -30,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Main;

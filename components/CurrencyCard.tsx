@@ -26,7 +26,7 @@ const CurrencyCard = ({
           <p className="text-sm">{symbol.toUpperCase()}</p>
         </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center">
         <div className="flex flex-col items-end">
           <p className="font-semibold">${usdBalance}</p>
           <p className="text-sm font-light">
